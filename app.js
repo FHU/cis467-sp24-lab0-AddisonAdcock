@@ -45,7 +45,7 @@ app.get('/math/:num1/:op/:num2', (req, res)=> {
     if (op == "tothepowerof"){
         result = num1 ** num2
     }
-    res.send(`${req.params.num1}`)
+    res.send(`${result}`)
 })
 
 app.get('/pandorasbox', (req, res)=> {
