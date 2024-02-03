@@ -51,7 +51,7 @@ app.get('/math/:num1/:op/:num2', (req, res)=> {
 app.get('/pandorasbox', (req, res)=> {
 
     
-    const random =  Math.floor( Math.random() * 1)
+    const random =  Math.floor( Math.random() * 2)
 
     if(random == 0 ){
     
