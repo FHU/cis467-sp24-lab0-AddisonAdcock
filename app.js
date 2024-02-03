@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 app.get('/greet', (req, res)=> {
     console.log(req.query)
 
-    res.send(`hey, ${req.query.name} \n You are  ${2024 - req.query.dob} or ${2023 - req.query.dob} years old`)
+    res.send(`hey, ${req.query.name} \n You are  ${2023 - req.query.dob} or ${2024 - req.query.dob} years old`)
 })
 
 app.get('/math/:num1/:op/:num2', (req, res)=> {
@@ -50,8 +50,11 @@ app.get('/math/:num1/:op/:num2', (req, res)=> {
 
 app.get('/pandorasbox', (req, res)=> {
 
-    // do the work
+    
+    const random =  Math.floor( Math.random() * 1)
 
+    if(random == 0 ){
+    
     fetch("https://icanhazdadjoke.com/", { 
         headers: {
             "Accept": "application/json"
@@ -62,7 +65,18 @@ app.get('/pandorasbox', (req, res)=> {
             console.log(data)
             res.render('pandorasbox', {title: "Pandora's Box", message: data.joke} )
         })
+    }
 
+    else{
+        fetch("facts.json")
+        .then( res => res.json() )
+        .then( (data) => {
+            const length = data.length;
+            const random =  Math.floor( Math.random() * length)
+            res.render('pandorasbox', {title: "Pandora's Box", message: data[random]} )
+        })
+    }
+    
     //const message = "DAD JOKE"
     // const length = facts.length;
     // const random =  Math.floor( Math.random() * length)
