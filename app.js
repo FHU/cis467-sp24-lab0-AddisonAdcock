@@ -1,6 +1,7 @@
 const facts = require('./facts.json')
 
 const express = require('express')
+const fs = require('fs');
 const app = express()
 
 const PORT = process.env.PORT || "3000"
@@ -67,14 +68,17 @@ app.get('/pandorasbox', (req, res)=> {
         })
     }
 
-    else{
-        fetch("facts.json")
-        .then( res => res.json() )
-        .then( (data) => {
+    else {
+        fs.readFile('facts.json', 'utf8', (err, data) => {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            data = JSON.parse(data);
             const length = data.length;
-            const random =  Math.floor( Math.random() * length)
-            res.render('pandorasbox', {title: "Pandora's Box", message: data[random]} )
-        })
+            const random = Math.floor(Math.random() * length);
+            res.render('pandorasbox', {title: "Pandora's Box", message: data[random]});
+        });
     }
     
     //const message = "DAD JOKE"
