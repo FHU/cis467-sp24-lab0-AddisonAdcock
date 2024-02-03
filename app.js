@@ -77,7 +77,7 @@ app.get('/pandorasbox', (req, res)=> {
             data = JSON.parse(data);
             const length = data.length;
             const random = Math.floor(Math.random() * length);
-            res.render('pandorasbox', {title: "Pandora's Box", message: data[random]});
+            res.render('pandorasbox', {title: "Pandora's Box", message: data[random].fact});
         });
     }
     
