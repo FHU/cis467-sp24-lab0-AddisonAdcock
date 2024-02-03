@@ -26,6 +26,25 @@ app.get('/greet', (req, res)=> {
 
 app.get('/math/:num1/:op/:num2', (req, res)=> {
     console.log( req.params )
+    const num1 = parseInt(req.params.num1)
+    const num2 = parseInt(req.params.num2)
+    const op = req.params.op
+    let result = 0
+    if (op == "times"){
+        result = num1 * num2
+    }
+    if (op == "minus"){
+        result = num1 - num2
+    }
+    if (op == "plus"){
+        result = num1 + num2
+    }
+    if (op == "dividedby"){
+        result = num1 / num2
+    }
+    if (op == "tothepowerof"){
+        result = num1 ** num2
+    }
     res.send(`${req.params.num1}`)
 })
 
