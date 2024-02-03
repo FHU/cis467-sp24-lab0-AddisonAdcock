@@ -21,7 +21,6 @@ app.get("/", (req, res) => {
 // http://localhost:3000/greet?name=kaylee&dob=2002
 app.get('/greet', (req, res)=> {
     console.log(req.query)
-
     res.send(`hey, ${req.query.name} \n You are  ${2023 - req.query.dob} or ${2024 - req.query.dob} years old`)
 })
 
@@ -80,12 +79,4 @@ app.get('/pandorasbox', (req, res)=> {
             res.render('pandorasbox', {title: "Pandora's Box", message: data[random].fact});
         });
     }
-    
-    //const message = "DAD JOKE"
-    // const length = facts.length;
-    // const random =  Math.floor( Math.random() * length)
-    // const fact4 = facts[random].fact
-
-    // res.render('pandorasbox', {title: "Pandora's Box", message:fact4} )
-
 })
