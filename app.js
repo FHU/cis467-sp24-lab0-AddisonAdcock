@@ -50,7 +50,6 @@ app.get('/math/:num1/:op/:num2', (req, res)=> {
 
 app.get('/pandorasbox', (req, res)=> {
 
-    
     const random =  Math.floor( Math.random() * 2)
 
     if(random == 0 ){
@@ -69,10 +68,6 @@ app.get('/pandorasbox', (req, res)=> {
 
     else {
         fs.readFile('facts.json', 'utf8', (err, data) => {
-            if (err) {
-                console.error(err);
-                return;
-            }
             data = JSON.parse(data);
             const length = data.length;
             const random = Math.floor(Math.random() * length);
