@@ -22,6 +22,7 @@ app.get('/greet', (req, res)=> {
     console.log(req.query)
 
     res.send(`hey, ${req.query.name}`)
+    res.send(`You are  ${2024 - req.query.dob} or ${2023 - req.query.dob} years old`)
 })
 
 app.get('/math/:num1/:op/:num2', (req, res)=> {
