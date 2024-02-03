@@ -13,19 +13,13 @@ app.listen(PORT, ()=> {
 })
 
 app.get("/", (req, res) => {
-
-    //res.send("Good Job!")
     res.render('pandorasbox', {title: "Home", message:"Good Job!"} )
-
-
 })
 
 // http://localhost:3000/greet?name=kaylee&dob=2002
 app.get('/greet', (req, res)=> {
     console.log(req.query)
-    //res.send(`hey, ${req.query.name} \n You are  ${2023 - req.query.dob} or ${2024 - req.query.dob} years old`)
     res.render('pandorasbox', {title: "Greet", message: `hey, ${req.query.name} \n You are  ${2023 - req.query.dob} or ${2024 - req.query.dob} years old`} )
-
 })
 
 app.get('/math/:num1/:op/:num2', (req, res)=> {
@@ -49,9 +43,8 @@ app.get('/math/:num1/:op/:num2', (req, res)=> {
     if (op == "tothepowerof"){
         result = num1 ** num2
     }
-    res.render('pandorasbox', {title: "Math", message: result} )
-    //res.send(`${result}`)
-})
+    res.render('pandorasbox', {title: "Math", message:result} )
+    })
 
 app.get('/pandorasbox', (req, res)=> {
 

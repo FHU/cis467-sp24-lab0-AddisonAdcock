@@ -2,5 +2,19 @@
     color: white;
 }
 body{
-    background-color: cadetblue;
+    background-color: #557A95;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #7395AE;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}  
+.top_name{
+    padding-left: 1rem;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;        
 }
